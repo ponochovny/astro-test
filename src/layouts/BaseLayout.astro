@@ -1,0 +1,30 @@
+---
+import '../styles/bundle.scss'
+import ThemeToggler from '../components/ThemeToggler.astro'
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <title>Портфолио</title>
+</head>
+<body>
+  <noscript>
+    <style type="text/css">
+        [data-aos] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+    </style>
+    <h2>
+      You don't have javascript enabled.  Good luck with that.
+    </h2>
+  </noscript>
+  
+  <ThemeToggler />
+  <slot />
+</body>
+</html>

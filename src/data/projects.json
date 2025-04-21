@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Проект 1",
+    "image": "/images/project1.jpg",
+    "video": "dQw4w9WgXcQ"
+  },
+  {
+    "title": "Проект 2",
+    "image": "/images/project2.jpg",
+    "video": "J---aiyznGQ"
+  },
+  {
+    "title": "Проект 3",
+    "video": "J---aiyznGQ"
+  },
+  {
+    "title": "Проект 4",
+    "image": "/images/project2.jpg"
+  }
+]
