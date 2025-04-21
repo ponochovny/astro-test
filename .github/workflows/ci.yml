@@ -13,6 +13,7 @@ permissions:
   issues: write
   repository-projects: write
   id-token: write
+  pages: write
 
 jobs:
   build:
