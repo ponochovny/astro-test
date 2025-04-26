@@ -15,6 +15,6 @@
   },
   {
     "title": "Проект 4",
-    "image": "/images/project2.jpg"
+    "image": "./images/project2.jpg"
   }
 ]

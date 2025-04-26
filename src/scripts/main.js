@@ -131,3 +131,18 @@ function toggleModal() {
 	const modal = document.getElementById('modal')
 	modal?.classList.toggle('open')
 }
+
+// MENU
+const togglers = document.querySelectorAll('[data-toggle-menu]')
+function toggleMenu() {
+	const menu = document.querySelector('.menu-links')
+	const icons = document.querySelectorAll('.hamburger-icon')
+	menu.classList.toggle('open')
+	icons.forEach((el) => {
+		el.classList.toggle('open')
+	})
+}
+
+togglers.forEach(function (toggler) {
+	toggler.addEventListener('click', toggleMenu)
+})
