@@ -1,11 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Projects from '../components/Projects.astro'
+import DesktopMenu from '../components/desktop-menu.astro'
+import MobileMenu from '../components/mobile-menu.astro'
+import ProfileSection from '../components/sections/profile.astro'
+import SelectedProjectsSection from '../components/sections/selected-projects.astro'
+import ProjectsSection from '../components/sections/projects.astro'
+import RecentProjectsSection from '../components/sections/recent-projects.astro'
+import AboutSection from '../components/sections/about.astro'
+import ExperienceSection from '../components/sections/experience.astro'
+import ContactsSection from '../components/sections/contacts.astro'
+import Modal from '../components/modal.astro'
+import BackToTop from '../components/back-to-top.astro'
 ---
 
 <BaseLayout>
-	<h1>Моё портфолио</h1>
-	<Projects />
+	<DesktopMenu />
+	<MobileMenu />
+	<ProfileSection />
+	<SelectedProjectsSection />
+	<ProjectsSection />
+	<RecentProjectsSection />
+	<AboutSection />
+	<ExperienceSection />
+	<ContactsSection />
+	<Modal />
+	<BackToTop />
 </BaseLayout>
 
 <script>
