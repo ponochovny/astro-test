@@ -719,7 +719,7 @@ ul.projects-list {
 	flex-wrap: wrap;
 	gap: 2rem;
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 1024px) {
 		flex-direction: column;
 		gap: 1.5rem;
 	}
@@ -731,7 +731,7 @@ ul.projects-list {
 		border: 1px solid var(--border-color);
 		border-radius: 0.5rem;
 
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: 1024px) {
 			width: 100%;
 		}
 
