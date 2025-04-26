@@ -1,19 +1,22 @@
+---
+const { title, email, telegram, linkedin, behance } = Astro.props;
+---
 <section class="contact" data-aos="fade-up" data-aos-offset="150">
 	<div id="contact" class="anchor"></div>
 
 	<div class="container">
-		<h2>Contact Me</h2>
+		<h2>{title}</h2>
 		<a
-			href="mailto:maxvulchyn@protonmail.com"
+			href={`mailto:${email}`}
 			target="_blank"
 			class="email"
 		>
-			maxvulchyn@protonmail.com
+			{email}
 		</a>
 		<div class="social-icons">
 			<a
 				class="icon"
-				href="https://t.me/gonzoshrimp"
+				href={telegram}
 				target="_blank"
 				title="Telegram"
 			>
@@ -26,7 +29,7 @@
 			</a>
 			<a
 				class="icon"
-				href="https://linkedin.com/in/maksymvulchyn"
+				href={linkedin}
 				target="_blank"
 				title="LinkedIn"
 			>
@@ -39,7 +42,7 @@
 			</a>
 			<a
 				class="icon"
-				href="https://www.behance.net/maxvulchyn"
+				href={behance}
 				target="_blank"
 				title="Behance"
 			>

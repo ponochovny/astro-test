@@ -1,11 +1,14 @@
+---
+const { title, subtitle, about } = Astro.props;
+---
 <section class="about" data-aos="fade-up" data-aos-offset="150">
 	<div id="about" class="anchor"></div>
-	<p class="section__text__p1">Get To Know More</p>
-	<h2 class="title">About Me</h2>
+	<p class="section__text__p1">{subtitle}</p>
+	<h2 class="title">{title}</h2>
 	<div class="section-container">
 		<div class="section__pic-container">
 			<img
-				src="assets/profile-pic.jpg"
+				src={about.image}
 				alt="Profile picture"
 				width="100%"
 				height="100%"
@@ -13,7 +16,7 @@
 		</div>
 		<div class="about-details-container">
 			<div class="about-containers">
-				<div class="details-container">
+				{about.experience.length && (<div class="details-container">
 					<img
 						src="assets/experience.png"
 						alt="experience icon"
@@ -22,11 +25,11 @@
 						height="100%"
 					/>
 					<h3>Experience</h3>
-					<p>4+ years: Graphic Design</p>
-					<p>2 years: 3D Modeling</p>
-					<p>1 year: Video Editing</p>
-				</div>
-				<div class="details-container">
+					{about.experience.map((item: string) => (
+						<p>{item}</p>
+					))}
+				</div>)}
+				{about.education.length && (<div class="details-container">
 					<img
 						src="assets/education.png"
 						alt="education icon"
@@ -35,18 +38,13 @@
 						height="100%"
 					/>
 					<h3>Education</h3>
-					<p>B.Sc. in Information Technology</p>
-				</div>
+					{about.education.map((item: string) => (
+						<p>{item}</p>
+					))}
+				</div>)}
 			</div>
 			<div class="text-container">
-				<p>
-					Hi, my name is Max, I am a digital designer with over 5 years of
-					experience in the field. My work is to transform your ideas into
-					visual designs. My services include Graphic Design, Social Media
-					Content, Video Production/Editing, Brand Identity, Print Designs
-					and more. Check my most recent works below and contact me, if you
-					want to boost your project!
-				</p>
+				<p>{about.text}</p>
 			</div>
 		</div>
 	</div>
