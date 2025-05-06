@@ -11,7 +11,7 @@ const { title, subtitle, items } = Astro.props;
 			<div class="accordion-item">
 				<div
 					class="accordion-item-header"
-					style={`background-image: url('assets/selected-projects/case-bg-${item.background}.jpg')`}
+					style={`background-image: url('${item.logo_bg || ''}'), url('assets/selected-projects/case-bg-${item.background}.jpg')`}
 				>
 					<div class="accordion-item-title-logo">
 						<img src={item.logo} alt="logo" />
@@ -23,19 +23,45 @@ const { title, subtitle, items } = Astro.props;
 					<div class="accordion-item-body-content">
 						<p>{item.content.description}</p>
 						<div class="accordion-media">
-							{item.content.media.map((item: string) => (
-								<div class="accordion-video">
-									<video
-										class="lazyload"
-										data-src={item}
-										loop
-										autoplay
-										muted
-										playsinline
-										controls
-									/>
-								</div>
-							))}
+							{item.content.media.map((item: string) => {
+								if (item.includes('.mp4')) {
+									return (
+										<div class="accordion-video">
+											<video
+												class="lazyload"
+												data-src={item}
+												loop
+												autoplay
+												muted
+												playsinline
+												controls
+											/>
+										</div>
+									)
+								} else if (item.includes('.jpg') || item.includes('.png') || item.includes('.jpeg')) {
+									return (
+										<div class="accordion-image">
+											<img src={item} alt="" />
+										</div>
+									)
+								} else if (item.split('').length) {
+									return (
+										<div class="accordion-video">
+											<iframe
+												class="lazyload"
+												width="100%"
+												height="100%"
+												data-src={`https://www.youtube.com/embed/${item.includes('?') ? item + '&' : item + '?'}enablejsapi=1`}
+												title="YouTube video player"
+												allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+												referrerpolicy="strict-origin-when-cross-origin"
+												allowfullscreen
+												frameborder="0"
+											></iframe>
+										</div>
+									)
+								}
+							})}
 						</div>
 					</div>
 					<div class="accordion-item-arrow">
