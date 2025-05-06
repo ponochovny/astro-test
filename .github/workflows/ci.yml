@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Required for pushing to branches
+  contents: write
   pull-requests: write
   issues: write
   repository-projects: write
@@ -28,6 +28,9 @@ jobs:
       
       - name: Install, build, and upload your site
         uses: withastro/action@v3
+        
+      - name: Create CNAME file
+        run: echo "vulchyn.com" > ./dist/CNAME
 
       # - name: Set up Node.js
       #   uses: actions/setup-node@v3
