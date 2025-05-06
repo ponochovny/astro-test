@@ -5,8 +5,17 @@ AOS.init()
 
 function setAllVideosMuted() {
 	const videos = document.getElementsByTagName('video')
+	const accordioniFrames = document
+		.querySelector('.accordion-wrapper')
+		.getElementsByTagName('iframe')
 	for (const video of videos) {
 		video.muted = true
+	}
+	for (const iframe of accordioniFrames) {
+		iframe.contentWindow.postMessage(
+			'{"event":"command","func":"' + 'stopVideo' + '","args":""}',
+			'*'
+		)
 	}
 }
 
@@ -28,15 +37,13 @@ headers.forEach(function (header) {
 		if (item.classList.contains('active')) {
 			closeAccordion(body, item)
 		} else {
-			document
-				.querySelectorAll('.accordion-item')
-				.forEach(function (otherItem) {
-					if (otherItem !== item) {
-						const body = otherItem.querySelector('.accordion-item-body')
-
-						closeAccordion(body, otherItem)
-					}
-				})
+			const activeItem = document.querySelector('.accordion-item.active')
+			if (activeItem) {
+				closeAccordion(
+					activeItem.querySelector('.accordion-item-body'),
+					activeItem
+				)
+			}
 
 			item.classList.add('active')
 			body.style.maxHeight = body.scrollHeight + 'px'
