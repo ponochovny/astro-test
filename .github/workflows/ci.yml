@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Create CNAME file
-        run: echo "vulchyn.com" > ./dist/CNAME
+        run: echo "vulchyn.com" > ./CNAME
       
       - name: Install, build, and upload your site
         uses: withastro/action@v3
