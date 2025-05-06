@@ -25,12 +25,12 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
         
       - name: Create CNAME file
         run: echo "vulchyn.com" > ./dist/CNAME
+      
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
 
       # - name: Set up Node.js
       #   uses: actions/setup-node@v3
