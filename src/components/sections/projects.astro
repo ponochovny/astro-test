@@ -1,5 +1,5 @@
 ---
-import { YouTube } from 'astro-embed'
+import { YouTube } from '@astro-community/astro-embed-youtube';
 const { items } = Astro.props;
 ---
 <section class="projects" data-aos="fade-up" data-aos-offset="150">
@@ -47,18 +47,7 @@ const { items } = Astro.props;
 			<div class="swiper-wrapper">
 				{items[1].items?.map((item: any) => (
 					<div class="swiper-slide">
-						<YouTube id={item} />
-						{/* <iframe
-							class="lazyload"
-							width="100%"
-							height="100%"
-							data-src="https://www.youtube.com/embed/ef1I-eLRGsc?si=aPiWatKHeStvLC0N"
-							title="YouTube video player"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							referrerpolicy="strict-origin-when-cross-origin"
-							allowfullscreen
-						></iframe> */}
+						<YouTube id={item} js-api />
 					</div>
 				))}
 			</div>

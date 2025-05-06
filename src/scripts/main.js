@@ -3,19 +3,18 @@ import 'aos/dist/aos.css'
 
 AOS.init()
 
-function setAllVideosMuted() {
+async function setAllVideosMuted() {
 	const videos = document.getElementsByTagName('video')
-	const accordioniFrames = document
-		.querySelector('.accordion-wrapper')
-		.getElementsByTagName('iframe')
 	for (const video of videos) {
 		video.muted = true
 	}
+
+	const accordioniFrames = document
+		.querySelector('.accordion-wrapper')
+		.querySelectorAll('lite-youtube')
 	for (const iframe of accordioniFrames) {
-		iframe.contentWindow.postMessage(
-			'{"event":"command","func":"' + 'stopVideo' + '","args":""}',
-			'*'
-		)
+		const video = await iframe.getYTPlayer()
+		video.pauseVideo()
 	}
 }
 
